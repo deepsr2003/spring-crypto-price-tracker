@@ -8,14 +8,13 @@ A professional-grade backend application built on Spring Boot that fetches crypt
 *   **Asynchronous Scheduling:** Implements **Spring `@Scheduled`** to periodically fetch data from an external provider (CoinMarketCap API).
 *   **External API Integration:** Utilizes **Spring WebClient** for non-blocking and efficient interaction with a third-party RESTful API.
 *   **Production Readiness:** Includes **Spring Boot Actuator** for health monitoring and **Springdoc-OpenAPI** for API documentation (Actuator endpoints).
-*   **Containerized Deployment:** Packaged with **Docker** for easy, portable, and reproducible deployment.
 
 ## 🛠️ Technology Stack
 
 *   **Backend:** Java 25 (LTS), Spring Boot 3.x
 *   **Data/API:** Spring WebFlux (WebClient), CoinMarketCap API
 *   **Real-Time:** Spring WebSockets (STOMP), SockJS
-*   **Build/Deployment:** Maven, Docker
+*   **Build/Deployment:** Maven
 
 ## ▶️ How to Run
 
