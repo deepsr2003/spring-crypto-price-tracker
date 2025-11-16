@@ -12,7 +12,7 @@ A professional-grade backend application built on Spring Boot that fetches crypt
 
 ## 🛠️ Technology Stack
 
-*   **Backend:** Java 21 (LTS), Spring Boot 3.x
+*   **Backend:** Java 25 (LTS), Spring Boot 3.x
 *   **Data/API:** Spring WebFlux (WebClient), CoinMarketCap API
 *   **Real-Time:** Spring WebSockets (STOMP), SockJS
 *   **Build/Deployment:** Maven, Docker
