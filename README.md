@@ -30,17 +30,6 @@ A professional-grade backend application built on Spring Boot that fetches crypt
     ./mvnw spring-boot:run
     ```
 
-### Option 2: Run with Docker (Recommended for Demonstration)
-
-1.  **Set Environment Variable:** Ensure the `CMC_API_KEY` is set in your shell (as above).
-2.  **Build Docker Image:**
-    ```bash
-    docker build -t crypto-tracker:latest .
-    ```
-3.  **Run Container:**
-    ```bash
-    docker run -d -p 8080:8080 --name crypto-app -e CMC_API_KEY="${CMC_API_KEY}" crypto-tracker:latest
-    ```
 
 ## 🌐 Demonstration
 
