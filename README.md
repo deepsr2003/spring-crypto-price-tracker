@@ -29,6 +29,17 @@ A professional-grade backend application built on Spring Boot that fetches crypt
     ```bash
     ./mvnw spring-boot:run
     ```
+<img width="1436" height="871" alt="Screenshot 2025-11-16 at 7 55 47 PM" src="https://github.com/user-attachments/assets/9e1638b0-126a-417c-bea4-d7198e383667" />
+
+<img width="1440" height="876" alt="Screenshot 2025-11-16 at 7 55 57 PM" src="https://github.com/user-attachments/assets/7ec1265d-2c7d-4f81-ab43-fde62a00d0a2" />
+
+<img width="1439" height="871" alt="Screenshot 2025-11-16 at 7 56 37 PM" src="https://github.com/user-attachments/assets/15753f0c-cbff-4114-a4ab-99634f7930bc" />
+
+
+<img width="1440" height="878" alt="Screenshot 2025-11-16 at 7 56 45 PM" src="https://github.com/user-attachments/assets/6292575b-ad4f-4f90-9ee7-723ee5f0120e" />
+
+
+   
 
 
 ## 🌐 Demonstration
@@ -40,8 +51,8 @@ Once the application is running, access the following URLs:
 *   **Health Check (Actuator):** `http://localhost:8080/actuator/health`
 
 **Demo Screenshot (Prices update automatically every 5 seconds):**
+<img width="1328" height="872" alt="Screenshot 2025-11-16 at 7 56 57 PM" src="https://github.com/user-attachments/assets/a740de61-c82c-4655-888f-8769df44cd3c" />
+<img width="1323" height="871" alt="Screenshot 2025-11-16 at 7 57 06 PM" src="https://github.com/user-attachments/assets/668cb0ed-a2d6-47b7-96bf-07136296c0db" />
 
-*(Insert your first successful screenshot here)*
 
 ---
-**This project is a complete demonstration of modern backend development principles.**
