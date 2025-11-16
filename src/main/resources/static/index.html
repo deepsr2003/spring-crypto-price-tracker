@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Crypto Price Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; padding: 20px;}
+        .price-container { margin-top: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: white; width: 400px; }
+        .price-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding: 5px; border-bottom: 1px solid #eee; }
+        .symbol { font-weight: bold; font-size: 1.2em; color: #333; }
+        .price { font-size: 1.2em; color: #1a73e8; }
+        .status-connected { color: green; font-weight: bold; }
+        .status-disconnected { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Crypto Price Tracker (Real-Time)</h1>
+    <p>Connection Status: <span id="status" class="status-disconnected">Disconnected</span></p>
+
+    <div id="price-container" class="price-container">
+        <p>Awaiting first real-time price update...</p>
+    </div>
+
+    <script>
+        var stompClient = null;
+
+        function connect() {
+            var socket = new SockJS('/ws-tracker'); // Connect to the STOMP endpoint
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, function (frame) {
+                document.getElementById('status').textContent = 'Connected';
+                document.getElementById('status').className = 'status-connected';
+                console.log('Connected: ' + frame);
+
+                // Subscribe to the /topic/prices destination
+                stompClient.subscribe('/topic/prices', function (priceData) {
+                    showPrices(JSON.parse(priceData.body));
+                });
+            }, function(error) {
+                document.getElementById('status').textContent = 'Disconnected (Reconnecting...)';
+                document.getElementById('status').className = 'status-disconnected';
+                console.error('STOMP Error. Retrying in 5s.', error);
+                setTimeout(connect, 5000);
+            });
+        }
+
+        function showPrices(prices) {
+            const container = document.getElementById('price-container');
+            container.innerHTML = ''; 
+
+            prices.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'price-item';
+                
+                // Format price as USD currency
+                const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(p.price);
+                
+                item.innerHTML = `<span class="symbol">${p.symbol}</span> <span class="price">${formattedPrice}</span>`;
+                container.appendChild(item);
+            });
+            console.log("Prices updated at: " + new Date().toLocaleTimeString());
+        }
+
+        window.onload = connect;
+    </script>
+</body>
+</html>
